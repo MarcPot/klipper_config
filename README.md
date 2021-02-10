@@ -1,2 +1,3 @@
-# klipper_config
-My klipper_config backups, check out the branches for my different printers.
+# This is not the branch you're looking for...
+Check out the branches for the backups for my different printers.
+Master branch is now used as a quickstart.
