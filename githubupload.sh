@@ -5,7 +5,7 @@ backupdir="backup/"
 
 cd ~/klipper_config
 
-git pull origin master
+git pull origin ANNEX_K3
 
 for file in *[0-9].cfg; do
         if [ -f "$file" ] # does file exist?
