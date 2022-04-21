@@ -1,0 +1,50 @@
+[server]
+host = 0.0.0.0
+port = 7125
+enable_debug_logging = False
+
+[file_manager]
+config_path = ~/klipper_config
+log_path = ~/klipper_logs
+enable_object_processing = False
+
+[authorization]
+cors_domains = 
+	*.local
+	*.lan
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+trusted_clients = 
+	10.22.13.0/24
+	127.0.0.0/8
+	172.16.0.0/12
+
+[power DFU]
+type = gpio
+pin = gpio25
+initial_state = off
+
+[power printer]
+type = gpio
+locked_while_printing = True
+off_when_shutdown = True
+restart_klipper_when_powered = True
+pin = !gpio4
+initial_state = off
+
+[history]
+
+[octoprint_compat]
+
+[update_manager]
+
+[update_manager client fluidd]
+type = web
+repo = cadriel/fluidd
+path = ~/fluidd
+
+[update_manager client mainsail]
+type = web
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
