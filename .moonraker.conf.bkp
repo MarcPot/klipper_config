@@ -3,20 +3,29 @@ host = 0.0.0.0
 port = 7125
 
 [file_manager]
-enable_object_processing = False
+enable_object_processing = True
+
+[machine]
+provider = systemd_dbus
+shutdown_action = poweroff
 
 [authorization]
-cors_domains = 
-	*.local
-	*.lan
-	*://my.mainsail.xyz
-	*://app.fluidd.xyz
+enable_api_key = True
+login_timeout = 90
+max_login_attempts = 3
 trusted_clients = 
 	10.22.10.0/24
-	127.0.0.0/8
-	172.16.0.0/12
-	10.13.13.2/32
-	10.22.99.0/24
+cors_domains = 
+	http://10.22.10.203:8080
+force_logins = True
+default_source = moonraker
+
+[job_queue]
+load_on_startup = True
+
+[history]
+
+[octoprint_compat]
 
 [power DFU]
 type = gpio
@@ -25,25 +34,20 @@ initial_state = off
 
 [power printer]
 type = gpio
-locked_while_printing = True
 off_when_shutdown = True
+on_when_job_queued = False
+locked_while_printing = True
 restart_klipper_when_powered = True
 pin = !gpio4
 initial_state = off
 
-[history]
-
-[octoprint_compat]
-
 [update_manager]
-
-[update_manager client fluidd]
-type = web
-repo = cadriel/fluidd
-path = ~/fluidd
+enable_auto_refresh = True
+channel = dev
 
 [update_manager client mainsail]
 type = web
+channel = beta
 repo = mainsail-crew/mainsail
 path = ~/mainsail
 
